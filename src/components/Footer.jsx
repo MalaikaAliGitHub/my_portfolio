@@ -1,3 +1,5 @@
+import React from "react";
+
 function Footer() {
   return (
     <footer className="relative mt-20 overflow-hidden">
@@ -7,7 +9,8 @@ function Footer() {
 
       <div className="relative bg-gray-950 text-white py-16 md:py-24 px-5 md:px-8 rounded-t-[2rem] md:rounded-t-[3rem] border-t border-gray-800">
 
-        <div className="max-w-5xcll mx-auto text-center">
+        {/* FIXED TYPO: Changed from max-w-5xcll to max-w-5xl */}
+        <div className="max-w-5xl mx-auto text-center relative z-10">
 
           {/* SMALL TITLE */}
           <div className="inline-block px-4 py-2 mb-6 rounded-full border border-gray-800 bg-gray-900 text-xs md:text-sm font-bold tracking-widest text-cyan-400 uppercase">
@@ -49,8 +52,8 @@ function Footer() {
           {/* LINE */}
           <div className="w-full h-px bg-gray-800 my-12"></div>
 
-          {/* BOTTOM */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* BOTTOM SECTION WITH FIXED Z-INDEX INTERACTION */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-20">
 
             <p className="text-gray-500 text-sm text-center md:text-left">
               © {new Date().getFullYear()}{" "}
@@ -60,15 +63,15 @@ function Footer() {
               . All Rights Reserved.
             </p>
 
-            {/* SOCIAL BUTTONS WITH FONT AWESOME ICONS */}
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            {/* SOCIAL BUTTONS CONTAINER */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto relative z-30">
 
               {/* LINKEDIN BUTTON */}
               <a
                 href="https://www.linkedin.com/in/malaika-ali-1015b12b4?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-2 px-6 py-2 rounded-full border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black hover:shadow-[0_0_15px_rgba(6,182,212,0.5)] transition duration-300 text-center"
+                className="group flex items-center justify-center gap-2 px-6 py-2 rounded-full border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black hover:shadow-[0_0_15px_rgba(6,182,212,0.5)] transition duration-300 text-center pointer-events-auto cursor-pointer"
               >
                 <i className="fa-brands fa-linkedin-in text-lg group-hover:scale-110 transition-transform duration-300"></i>
                 <span>LinkedIn</span>
@@ -76,10 +79,10 @@ function Footer() {
 
               {/* GITHUB BUTTON */}
               <a
-                href="https://github.com/MalaikaAliGitHub/"
+                href="https://github.com/MalaikaAliGitHub"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-2 px-6 py-2 rounded-full border border-gray-700 text-gray-400 hover:border-white hover:text-white hover:bg-white hover:text-black hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition duration-300 text-center"
+                className="group flex items-center justify-center gap-2 px-6 py-2 rounded-full border border-gray-700 text-gray-400 hover:border-white hover:text-white hover:bg-white hover:text-black hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition duration-300 text-center pointer-events-auto cursor-pointer"
               >
                 <i className="fa-brands fa-github text-lg group-hover:scale-110 transition-transform duration-300"></i>
                 <span>GitHub</span>
@@ -91,9 +94,9 @@ function Footer() {
 
         </div>
 
-        {/* Glow Effects */}
-        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 blur-[100px] rounded-full"></div>
-        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-purple-500/10 blur-[100px] rounded-full"></div>
+        {/* Glow Effects (Pushed backward via low z-index) */}
+        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-purple-500/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
 
       </div>
     </footer>
